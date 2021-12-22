@@ -25,6 +25,7 @@ func (Node) Fields() []ent.Field {
 // Edges of the Node.
 func (Node) Edges() []ent.Edge {
 	return []ent.Edge{
-		edge.To("alloc", Alloc.Type),
+		edge.From("alloc", Alloc.Type).
+			Ref("nodes"),
 	}
 }

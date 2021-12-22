@@ -25,8 +25,9 @@ func (Alloc) Fields() []ent.Field {
 // Edges of the Alloc.
 func (Alloc) Edges() []ent.Edge {
 	return []ent.Edge{
-		edge.From("nodes", Node.Type).
+		edge.From("project", ProjectRes.Type).
 			Ref("alloc"),
+		edge.To("nodes", Node.Type),
 		edge.To("amends", AllocRecordAmend.Type),
 	}
 }
