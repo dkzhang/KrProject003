@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package userApi.v1;
+
+import "google/api/annotations.proto";
+
+option go_package = "userServer/api/userApi/v1;v1";
+option java_multiple_files = true;
+option java_package = "dev.kratos.api.userApi.v1";
+option java_outer_classname = "UserApiProtoV1";
+
+service OrganQuery {
+  // Sends a greeting
+  rpc GetUser (GetOrganRequest) returns (GetOrganReply)  {
+    option (google.api.http) = {
+      get: "/OrganApi/{id}"
+    };
+  }
+}
+
+// The request message containing the user's name.
+message GetOrganRequest {
+  int64 id = 1;
+}
+
+// The response message containing the greetings
+message GetOrganReply {
+  string name = 1;
+}
